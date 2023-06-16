@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <style>
+    /* CSS styles for the signup page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    h1 {
+      margin-top: 0;
+    }
+    
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    
+    button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Sign Up</h1>
+    <form id="signup-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" placeholder="Enter your name">
+      
+      <label for="bio">Bio:</label>
+      <textarea id="bio" placeholder="Enter a bio about yourself"></textarea>
+      
+      <label for="organizations">Previous Organizations and Clubs:</label>
+      <textarea id="organizations" placeholder="Enter previous organizations and clubs"></textarea>
+      
+      <label for="education">Education:</label>
+      <textarea id="education" placeholder="Enter your educational details"></textarea>
+      
+      <label for="employment">Previous Employment:</label>
+      <textarea id="employment" placeholder="Enter previous employment details"></textarea>
+
+      <label for="skills">Skills:</label>
+      <textarea id="skills" placeholder="Skills you want your future employer to know about"></textarea>
+      
+      <button type="submit">Create Profile</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+      
+      // Retrieve values from form fields
+      var name = document.getElementById('name').value;
+      var bio = document.getElementById('bio').value;
+      var organizations = document.getElementById('organizations').value;
+      var education = document.getElementById('education').value;
+      var employment = document.getElementById('employment').value;
+      var skills = document.getElementById('skills').value;
+      
+      // Create profile object
+      var profile = {
+        name: name,
+        bio: bio,
+        organizations: organizations,
+        education: education,
+        employment: employment,
+        skills: skills
+      };
+      
+      // Save profile data (e.g., in local storage)
+      localStorage.setItem('profile', JSON.stringify(profile));
+      
+      // Provide feedback to the user
+      alert('Profile created successfully!');
+      
+      window.location.href = 'profile.html';
+    });
+  </script>
+</body>
+</html>

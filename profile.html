@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>User Profile</title>
+  <style>
+    /* CSS styles for the profile page */
+    /* ... (CSS styles omitted for brevity) ... */
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>User Profile</h1>
+    <div id="profile-container"></div>
+  </div>
+
+  <script>
+    // Retrieve profile data from local storage
+    var profileData = localStorage.getItem('profile');
+    
+    if (profileData) {
+      var profile = JSON.parse(profileData);
+      
+      // Display profile data on the page
+      var profileContainer = document.getElementById('profile-container');
+      
+      var profileHTML = `
+        <h2>${profile.name}</h2>
+        <p><strong>Bio:</strong> ${profile.bio}</p>
+        <p><strong>Previous Organizations and Clubs:</strong> ${profile.organizations}</p>
+        <p><strong>Education:</strong> ${profile.education}</p>
+        <p><strong>Previous Employment:</strong> ${profile.employment}</p>
+      `;
+      
+      profileContainer.innerHTML = profileHTML;
+    }
+  </script>
+</body>
+</html>
